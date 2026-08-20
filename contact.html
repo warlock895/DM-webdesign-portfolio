@@ -1,65 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | DM_editz_111</title>
-    <link rel="stylesheet" href="styles.css?v=1787238305900">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            accent: '#6366f1', // Indigo
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .reveal {
+        @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+      }
+      .reveal.visible {
+        @apply opacity-100 translate-y-0;
+      }
+    }
+    body { background-color: #09090b; }
+  </style>
 
-    <!-- Dynamic Admin Styles -->
-    
-    <style>
-        body {
-            font-size: 16px;
-            font-weight: normal;
-            font-style: normal;
-        }
-        h1, h2, h3, p {
-            text-align: left !important;
-        }
-    </style>
-    
 </head>
-<body>
+<body class="bg-zinc-950 text-zinc-50 font-sans antialiased overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <a href="index.html" class="logo"><img src="./logo_transparent.png" alt="DM Logo"> DM</a>
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="youtube.html">YouTube</a></li>
-            <li><a href="pinterest.html">Pinterest</a></li>
-            <li><a href="contact.html" class="hire-link">Hire Me</a></li>
-        </ul>
+    <!-- Mobile Navbar -->
+    <nav class="lg:hidden sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 p-4 flex items-center justify-between">
+        <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+            DM <span class="text-accent">Editz</span>
+        </a>
+        <button id="mobile-menu-btn" class="p-2 text-zinc-400 hover:text-zinc-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
     </nav>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Ready to build something?</h2>
-        <p>Let's talk about your simple website needs. Reach out directly on Telegram!</p>
-        
-        <div style="margin-bottom: 2rem;">
-            <a href="https://t.me/DMwebdesign" target="_blank" class="btn primary-btn">
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 z-40 bg-zinc-950 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-20 px-6">
+        <nav class="flex flex-col gap-2">
+            <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 hover:translate-x-1">About</a>
+            <a href="services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 hover:translate-x-1">Services</a>
+            <a href="youtube.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 hover:translate-x-1">YouTube</a>
+            <a href="pinterest.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 hover:translate-x-1">Pinterest</a>
+            <a href="contact.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium bg-accent/10 text-accent">Hire Me</a>
+        </nav>
+    </div>
+
+    <div class="flex min-h-screen">
+        <!-- Desktop Sidebar -->
+        <aside class="hidden lg:flex flex-col w-[280px] h-screen sticky top-0 border-r border-zinc-800 bg-zinc-950 p-6 z-10">
+            <a href="index.html" class="font-display font-bold text-2xl tracking-tight mb-12 flex items-center gap-2">
+                DM <span class="text-accent">Editz</span>
+            </a>
+            <nav class="flex-1 flex flex-col gap-2">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 hover:translate-x-1">About</a>
+            <a href="services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 hover:translate-x-1">Services</a>
+            <a href="youtube.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 hover:translate-x-1">YouTube</a>
+            <a href="pinterest.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 hover:translate-x-1">Pinterest</a>
+            <a href="contact.html" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-medium bg-accent/10 text-accent">Hire Me</a>
+            </nav>
+            <div class="mt-auto pt-6 border-t border-zinc-800">
+                <p class="text-zinc-500 text-sm">&copy; 2026 DM_editz_111</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full lg:w-[calc(100vw-280px)]">
+            <div class="max-w-[1200px] mx-auto p-6 lg:p-12 w-full">
+                
+        <div class="reveal max-w-2xl mt-8 lg:mt-20">
+            <h1 class="font-display text-3xl lg:text-5xl tracking-tight mb-6">Ready to <span class="text-accent">build something?</span></h1>
+            <p class="text-zinc-400 text-lg leading-relaxed mb-10">
+                Let's talk about your simple website needs. Reach out directly on Telegram, and we'll get started right away.
+            </p>
+            <a href="https://t.me/DMwebdesign" target="_blank" class="inline-block bg-accent hover:bg-indigo-400 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 hover:-translate-y-1 shadow-lg shadow-accent/20">
                 Message on Telegram
             </a>
         </div>
-
         
-    </section>
+            </div>
+        </main>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 DM_editz_111. Built with HTML & CSS.</p>
-    </footer>
-
-    <script src="script.js?v=1787238305900"></script>
+    <script src="script.js"></script>
 </body>
 </html>
