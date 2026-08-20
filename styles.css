@@ -196,14 +196,21 @@ p {
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    color: var(--primary-color);
 }
 
 .hero-content p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
     color: var(--muted-text);
+    max-width: 600px;
+    line-height: 1.6;
 }
 
 .hero-buttons {
@@ -358,6 +365,10 @@ footer {
         font-size: 2rem;
     }
     
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
     .hero-buttons {
         flex-direction: column;
     }
@@ -410,7 +421,8 @@ footer {
     }
     
     .nav-links li {
-        margin: 1rem 0;
+        margin: 0.5rem 0;
         text-align: center;
+        font-size: 1.1rem;
     }
 }
